@@ -61,7 +61,7 @@ function App() {
               </main>
             </div>
           </div>
-          <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 border">
+          <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 ">
             <img
               src={heroImge}
               alt="Hero"
