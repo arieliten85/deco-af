@@ -1,3 +1,5 @@
+import logo from "../../assets/logo.jpeg";
+
 export const Button = ({ children, className = "", ...props }) => {
   return (
     <button
@@ -35,4 +37,14 @@ export const Card = ({ children, className = "" }) => {
 };
 export const CardContent = ({ children, className = "" }) => {
   return <div className={`p-4 ${className}`}>{children}</div>;
+};
+export const Logo = ({ width, height }) => {
+  return (
+    <img
+      src={logo}
+      alt="Logo"
+      className="h-8 w-auto sm:h-10"
+      style={{ width, height }}
+    />
+  );
 };

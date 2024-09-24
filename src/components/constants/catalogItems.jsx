@@ -1,7 +1,7 @@
-import hangingLampImg from "../assets/hanging-lamp.jpeg";
-import businessSignageImg from "../assets/business-signage.jpeg";
-import customSignageImg from "../assets/custom-signage.jpeg";
-import brandedMerchImg from "../assets/branded-merch.jpeg";
+import hangingLampImg from "../../assets/hanging-lamp.jpeg";
+import businessSignageImg from "../../assets/business-signage.jpeg";
+import customSignageImg from "../../assets/custom-signage.jpeg";
+import brandedMerchImg from "../../assets/branded-merch.jpeg";
 
 export const catalogo = [
   {
