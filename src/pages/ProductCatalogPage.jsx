@@ -3,6 +3,7 @@ import { Search, ChevronRight } from "lucide-react";
 import { category } from "../components/constants/categoryFetch";
 import { product } from "../components/constants/productFetch";
 import { Link } from "react-router-dom";
+import { Button } from "../components/common/UIComponents";
 
 const MAX_PRICE = 1500;
 
@@ -110,7 +111,7 @@ const ProductCatalogPage = () => {
                 <div className="p-4 border-t">
                   <button
                     onClick={limpiarFiltros}
-                    className="bg-red-600 text-white py-2 px-4 rounded w-full"
+                    className="bg-primary-gray text-white py-2 px-4 rounded w-full"
                   >
                     Limpiar Filtros
                   </button>
@@ -156,7 +157,12 @@ const FiltroPrecio = ({ filtroPrecio, setFiltroPrecio }) => (
       step={10}
       value={filtroPrecio}
       onChange={(e) => setFiltroPrecio(Number(e.target.value))}
-      className="mt-2 w-full"
+      className="mt-2 w-full appearance-none h-2 bg-gray-200 rounded-lg cursor-pointer"
+      style={{
+        background: `linear-gradient(to right, #FFA500 ${
+          (filtroPrecio / MAX_PRICE) * 100
+        }%, #e5e7eb ${(filtroPrecio / MAX_PRICE) * 100}%)`, // color naranja
+      }}
     />
   </div>
 );
@@ -212,12 +218,12 @@ const ProductoCard = ({ producto, seleccionarProducto }) => (
     </div>
     <div className="p-4 border-t">
       <Link to={`/producto/${producto.id}`}>
-        <button
+        <Button
           onClick={() => seleccionarProducto(producto)}
-          className="bg-blue-600 text-white py-2 px-4 rounded w-full"
+          className="bg-orange-500 text-white rounded-md hover:bg-orange-600 py-2 px-4 rounded    w-full"
         >
           Ver detalles
-        </button>
+        </Button>
       </Link>
     </div>
   </div>

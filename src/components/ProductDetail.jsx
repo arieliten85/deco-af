@@ -99,7 +99,11 @@ function ProductInfo({ name, price, description }) {
       </div>
 
       <p className="text-gray-600">{description}</p>
-      <Button className="w-full">Consultar</Button>
+
+      <Button className="w-full mt-auto mb-4 flex items-center justify-center bg-orange-500 text-white rounded-md hover:bg-orange-600">
+        Consultar
+      </Button>
+
       <ProductFeatures />
     </div>
   );
