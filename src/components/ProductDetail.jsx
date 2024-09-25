@@ -114,7 +114,7 @@ function ProductFeatures() {
     <div className="space-y-4 border-t pt-4">
       <h3 className="font-semibold text-lg">Características principales:</h3>{" "}
       <ul className="list-disc list-inside space-y-2 text-sm text-gray-600">
-        <li>Características específicas de la Tablet Pro 12</li>
+        <li>Características específicas del producto</li>
         <li>Otra característica importante</li>
         <li>Y otra más</li>
       </ul>
