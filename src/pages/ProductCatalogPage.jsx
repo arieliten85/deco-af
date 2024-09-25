@@ -213,7 +213,6 @@ const ProductoCard = ({ producto, seleccionarProducto }) => (
     />
     <div className="p-4 flex flex-col justify-between">
       <h3 className="text-lg font-bold">{producto.nombre}</h3>
-      <p className="text-gray-600">{producto.categoria}</p>
       <p className="text-xl font-semibold">${producto.precio}</p>
     </div>
     <div className="p-4 border-t">
