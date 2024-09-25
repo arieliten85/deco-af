@@ -3,7 +3,7 @@ import { ContactSection } from "../components/ContactSection";
 import { HeroSection } from "../components/HeroSection";
 import { TestimonialsSection } from "../components/TestimonialsSection";
 
-export default function Home() {
+export default function HomePage() {
   return (
     <main className="flex-grow">
       <HeroSection />

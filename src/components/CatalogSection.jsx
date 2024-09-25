@@ -1,6 +1,7 @@
 import { Button, Card } from "./common/UIComponents";
 import { ArrowRight } from "lucide-react";
 import { catalogo } from "./constants/catalogItems";
+import { Link } from "react-router-dom";
 
 export const CatalogSection = () => {
   return (
@@ -38,9 +39,12 @@ export const CatalogSection = () => {
                 <p className="text-gray-600 text-center px-4 mb-4">
                   {product.text}
                 </p>
-                <Button className="mt-auto mb-4 flex items-center bg-orange-500 text-white rounded-md hover:bg-orange-600">
-                  Ver detalles <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
+
+                <Link to="/productos">
+                  <Button className="mt-auto mb-4 flex items-center bg-orange-500 text-white rounded-md hover:bg-orange-600">
+                    Ver detalles <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
               </Card>
             ))}
           </div>

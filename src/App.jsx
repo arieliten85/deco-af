@@ -1,8 +1,10 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/navBar/Navbar";
 import Footer from "./components/Footer";
-import Home from "./pages/Home";
-import ProductDetails from "./components/productDetails/ProductDetails";
+
+import ProductCatalogPage from "./pages/ProductCatalogPage";
+import HomePage from "./pages/Home";
+import ProductDetail from "./components/ProductDetail";
 
 function App() {
   return (
@@ -10,8 +12,10 @@ function App() {
       <div className="flex flex-col min-h-screen bg-gray-50">
         <Navbar />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/detail" element={<ProductDetails />} />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/productos" element={<ProductCatalogPage />} />
+
+          <Route path="/producto/:id" element={<ProductDetail />} />
         </Routes>
         <Footer />
       </div>
