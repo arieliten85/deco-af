@@ -23,7 +23,7 @@ import img21 from "../../assets/catalogo/img21.jpeg";
 export const product = [
   {
     id: 1,
-    nombre: "Universidad de Miami",
+    nombre: "Cartel Universidad de Miami",
     descripcion: "Cuerpo de polifan pintado con acrilico",
     precio: 1299,
     categoria: "cateles",
@@ -36,7 +36,7 @@ export const product = [
   },
   {
     id: 2,
-    nombre: "EJS NAILS",
+    nombre: "Cartel EJS NAILS",
     precio: 899,
     categoria: "cateles",
     descripcion: "Cuerpo de polifan pintado con acrilico",
@@ -66,29 +66,28 @@ export const product = [
   },
   {
     id: 3,
-    nombre: "Camiseta Vintage",
+    nombre: "Cartel Escudo Selec. Argentina",
     descripcion: "Cuerpo de polifan pintado con acrilico",
     precio: 39,
-    categoria: "ropa",
+    categoria: "cateles",
     imagenes: {
       principal: {
         url: img03,
-        alt: "Camiseta Vintage",
       },
       adicionales: [
         {
           url: img03,
-          alt: "Vista lateral de la Camiseta Vintage",
+
           order: 1,
         },
         {
           url: img03,
-          alt: "Vista trasera de la Camiseta Vintage",
+
           order: 2,
         },
         {
           url: img03,
-          alt: "Vista de la Camiseta Vintage en uso",
+
           order: 3,
         },
       ],
@@ -96,29 +95,28 @@ export const product = [
   },
   {
     id: 4,
-    nombre: "Zapatillas Runner",
+    nombre: "Cartel Barberia Cut&Shave",
     descripcion: "Cuerpo de polifan pintado con acrilico",
     precio: 129,
-    categoria: "zapatos",
+    categoria: "cateles",
     imagenes: {
       principal: {
         url: img04,
-        alt: "Zapatillas Runner",
       },
       adicionales: [
         {
           url: img04,
-          alt: "Vista lateral de las Zapatillas Runner",
+
           order: 1,
         },
         {
           url: img04,
-          alt: "Vista superior de las Zapatillas Runner",
+
           order: 2,
         },
         {
           url: img04,
-          alt: "Vista trasera de las Zapatillas Runner",
+
           order: 3,
         },
       ],
@@ -126,29 +124,28 @@ export const product = [
   },
   {
     id: 5,
-    nombre: "Libro: El Arte de la Guerra",
+    nombre: "Cartel Gym BodyStrong",
     descripcion: "Cuerpo de polifan pintado con acrilico",
     precio: 24,
-    categoria: "libros",
+    categoria: "cateles",
     imagenes: {
       principal: {
         url: img05,
-        alt: "Portada del libro El Arte de la Guerra",
       },
       adicionales: [
         {
           url: img05,
-          alt: "Contraportada del libro El Arte de la Guerra",
+
           order: 1,
         },
         {
           url: img05,
-          alt: "Página interior del libro El Arte de la Guerra",
+
           order: 2,
         },
         {
           url: img05,
-          alt: "Vista del libro abierto El Arte de la Guerra",
+
           order: 3,
         },
       ],
@@ -156,29 +153,28 @@ export const product = [
   },
   {
     id: 6,
-    nombre: "Auriculares Inalámbricos",
+    nombre: "Cartel Más allá del sol",
     descripcion: "Cuerpo de polifan pintado con acrilico",
     precio: 199,
-    categoria: "accesorios",
+    categoria: "cateles",
     imagenes: {
       principal: {
         url: img06,
-        alt: "Auriculares Inalámbricos",
       },
       adicionales: [
         {
           url: img06,
-          alt: "Vista lateral de los Auriculares Inalámbricos",
+
           order: 1,
         },
         {
           url: img06,
-          alt: "Auriculares en su estuche de carga",
+
           order: 2,
         },
         {
           url: img06,
-          alt: "Vista de los Auriculares Inalámbricos en uso",
+
           order: 3,
         },
       ],
@@ -186,29 +182,28 @@ export const product = [
   },
   {
     id: 7,
-    nombre: "Reloj Smart",
+    nombre: "Cartel Barberia barba negra",
     descripcion: "Cuerpo de polifan pintado con acrilico",
     precio: 299,
-    categoria: "smartwatches",
+    categoria: "cateles",
     imagenes: {
       principal: {
         url: img07,
-        alt: "Reloj Smart",
       },
       adicionales: [
         {
           url: img07,
-          alt: "Vista trasera del Reloj Smart",
+
           order: 1,
         },
         {
           url: img07,
-          alt: "Vista lateral del Reloj Smart",
+
           order: 2,
         },
         {
           url: img07,
-          alt: "Reloj Smart en la muñeca",
+
           order: 3,
         },
       ],
@@ -216,29 +211,28 @@ export const product = [
   },
   {
     id: 8,
-    nombre: "Chaqueta de Cuero",
-    descripcion: "Cuerpo de polifan pintado con acrilico",
+    nombre: "Lámpara Light of the North",
+    descripcion: "Cuerpo de madera MDF pintada",
     precio: 89,
     categoria: "ropa",
     imagenes: {
       principal: {
         url: img08,
-        alt: "Chaqueta de Cuero",
       },
       adicionales: [
         {
           url: img08,
-          alt: "Vista de la Chaqueta de Cuero por detrás",
+
           order: 1,
         },
         {
           url: img08,
-          alt: "Vista lateral de la Chaqueta de Cuero",
+
           order: 2,
         },
         {
           url: img08,
-          alt: "Chaqueta de Cuero en uso",
+
           order: 3,
         },
       ],
@@ -246,29 +240,28 @@ export const product = [
   },
   {
     id: 9,
-    nombre: "Botas de Invierno",
+    nombre: "Cartel Ford F-100",
     descripcion: "Cuerpo de polifan pintado con acrilico",
     precio: 149,
-    categoria: "zapatos",
+    categoria: "cateles",
     imagenes: {
       principal: {
         url: img09,
-        alt: "Botas de Invierno",
       },
       adicionales: [
         {
           url: img09,
-          alt: "Vista lateral de las Botas de Invierno",
+
           order: 1,
         },
         {
           url: img09,
-          alt: "Vista trasera de las Botas de Invierno",
+
           order: 2,
         },
         {
           url: img09,
-          alt: "Botas de Invierno en uso",
+
           order: 3,
         },
       ],
@@ -276,29 +269,28 @@ export const product = [
   },
   {
     id: 10,
-    nombre: "Libro: 1984",
-    descripcion: "Cuerpo de polifan pintado con acrilico",
+    nombre: "Lámpara Aurora Lamp",
+    descripcion: "Cuerpo de madera MDF pintada",
     precio: 22,
-    categoria: "libros",
+    categoria: "lamparas",
     imagenes: {
       principal: {
         url: img10,
-        alt: "Portada del libro 1984",
       },
       adicionales: [
         {
           url: img10,
-          alt: "Contraportada del libro 1984",
+
           order: 1,
         },
         {
           url: img10,
-          alt: "Página interior del libro 1984",
+
           order: 2,
         },
         {
           url: img10,
-          alt: "Vista del libro abierto 1984",
+
           order: 3,
         },
       ],
@@ -306,10 +298,10 @@ export const product = [
   },
   {
     id: 11,
-    nombre: "Tablet Pro 12",
-    descripcion: "Cuerpo de polifan pintado con acrilico",
+    nombre: "Lámpara Scandi Dark",
+    descripcion: "Cuerpo de madera pintada",
     precio: 599,
-    categoria: "tablets",
+    categoria: "lamparas",
     imagenes: {
       principal: {
         url: img11,
@@ -336,29 +328,28 @@ export const product = [
   },
   {
     id: 12,
-    nombre: "Cámara Digital X100",
-    descripcion: "Cuerpo de polifan pintado con acrilico",
+    nombre: "Lámpara Esencia Nórdica",
+    descripcion: "Cuerpo de madera MDF pintada",
     precio: 799,
-    categoria: "camaras",
+    categoria: "lamparas",
     imagenes: {
       principal: {
         url: img12,
-        alt: "Cámara Digital X100",
       },
       adicionales: [
         {
           url: img12,
-          alt: "Vista lateral de la Cámara Digital X100",
+
           order: 1,
         },
         {
           url: img12,
-          alt: "Vista trasera de la Cámara Digital X100",
+
           order: 2,
         },
         {
           url: img12,
-          alt: "Cámara Digital X100 en un set de fotografía",
+
           order: 3,
         },
       ],
@@ -366,29 +357,28 @@ export const product = [
   },
   {
     id: 13,
-    nombre: "Teclado Mecánico RGB",
-    descripcion: "Cuerpo de polifan pintado con acrilico",
+    nombre: "Lámpara Minimalist Glow",
+    descripcion: "Cuerpo de madera MDF pintada",
     precio: 89,
-    categoria: "accesorios",
+    categoria: "lamparas",
     imagenes: {
       principal: {
         url: img13,
-        alt: "Teclado Mecánico RGB",
       },
       adicionales: [
         {
           url: img13,
-          alt: "Vista lateral del Teclado Mecánico RGB",
+
           order: 1,
         },
         {
           url: img13,
-          alt: "Vista de las teclas del Teclado Mecánico RGB",
+
           order: 2,
         },
         {
           url: img13,
-          alt: "Teclado Mecánico RGB iluminado",
+
           order: 3,
         },
       ],
@@ -396,29 +386,28 @@ export const product = [
   },
   {
     id: 14,
-    nombre: "Silla Ergonómica",
-    descripcion: "Cuerpo de polifan pintado con acrilico",
+    nombre: "Lámpara PinApple",
+    descripcion: "Cuerpo de madera MDF pintada",
     precio: 249,
-    categoria: "muebles",
+    categoria: "lamparas",
     imagenes: {
       principal: {
         url: img14,
-        alt: "Silla Ergonómica",
       },
       adicionales: [
         {
           url: img14,
-          alt: "Vista lateral de la Silla Ergonómica",
+
           order: 1,
         },
         {
           url: img14,
-          alt: "Vista trasera de la Silla Ergonómica",
+
           order: 2,
         },
         {
           url: img14,
-          alt: "Silla Ergonómica en un ambiente de oficina",
+
           order: 3,
         },
       ],
@@ -426,29 +415,28 @@ export const product = [
   },
   {
     id: 15,
-    nombre: "Monitor 4K Ultra",
-    descripcion: "Cuerpo de polifan pintado con acrilico",
+    nombre: "Lámpara Arctic Shine",
+    descripcion: "Cuerpo de madera MDF pintada",
     precio: 499,
-    categoria: "monitores",
+    categoria: "lamparas",
     imagenes: {
       principal: {
         url: img15,
-        alt: "Monitor 4K Ultra",
       },
       adicionales: [
         {
           url: img15,
-          alt: "Vista lateral del Monitor 4K Ultra",
+
           order: 1,
         },
         {
           url: img15,
-          alt: "Vista trasera del Monitor 4K Ultra",
+
           order: 2,
         },
         {
           url: img15,
-          alt: "Monitor 4K Ultra en un set de trabajo",
+
           order: 3,
         },
       ],
@@ -456,29 +444,28 @@ export const product = [
   },
   {
     id: 16,
-    nombre: "Juego: Aventura Épica",
+    nombre: "Cartel gym Del Buenos Aires",
     descripcion: "Cuerpo de polifan pintado con acrilico",
     precio: 59,
-    categoria: "videojuegos",
+    categoria: "cateles",
     imagenes: {
       principal: {
         url: img16,
-        alt: "Juego: Aventura Épica",
       },
       adicionales: [
         {
           url: img16,
-          alt: "Portada del juego Aventura Épica",
+
           order: 1,
         },
         {
           url: img16,
-          alt: "Vista de la caja del juego Aventura Épica",
+
           order: 2,
         },
         {
           url: img16,
-          alt: "Captura de pantalla del juego Aventura Épica",
+
           order: 3,
         },
       ],
@@ -486,8 +473,8 @@ export const product = [
   },
   {
     id: 17,
-    nombre: "Estuche para Laptop",
-    descripcion: "Cuerpo de polifan pintado con acrilico",
+    nombre: "Lámpara Serene Bright",
+    descripcion: "Cuerpo de madera pintada",
     precio: 39,
     categoria: "accesorios",
     imagenes: {
@@ -516,29 +503,28 @@ export const product = [
   },
   {
     id: 18,
-    nombre: "Altavoz Bluetooth",
-    descripcion: "Cuerpo de polifan pintado con acrilico",
+    nombre: "Lámpara Nordic Essence",
+    descripcion: "Cuerpo de madera MDF pintada",
     precio: 99,
-    categoria: "accesorios",
+    categoria: "lamparas",
     imagenes: {
       principal: {
         url: img18,
-        alt: "Altavoz Bluetooth",
       },
       adicionales: [
         {
           url: img18,
-          alt: "Vista lateral del Altavoz Bluetooth",
+
           order: 1,
         },
         {
           url: img18,
-          alt: "Altavoz Bluetooth en uso",
+
           order: 2,
         },
         {
           url: img18,
-          alt: "Vista del Altavoz Bluetooth desde arriba",
+
           order: 3,
         },
       ],
@@ -546,29 +532,28 @@ export const product = [
   },
   {
     id: 19,
-    nombre: "Cargador Solar",
+    nombre: "Cartel led Burger TiaLoca",
     descripcion: "Cuerpo de polifan pintado con acrilico",
     precio: 49,
-    categoria: "accesorios",
+    categoria: "cateles",
     imagenes: {
       principal: {
         url: img19,
-        alt: "Cargador Solar",
       },
       adicionales: [
         {
           url: img19,
-          alt: "Vista lateral del Cargador Solar",
+
           order: 1,
         },
         {
           url: img19,
-          alt: "Cargador Solar en un ambiente exterior",
+
           order: 2,
         },
         {
           url: img19,
-          alt: "Vista de la parte posterior del Cargador Solar",
+
           order: 3,
         },
       ],
@@ -576,29 +561,28 @@ export const product = [
   },
   {
     id: 20,
-    nombre: "Sofá Modular",
-    descripcion: "Cuerpo de polifan pintado con acrilico",
+    nombre: "Lámpara Ártica duo",
+    descripcion: "Cuerpo de madera MDF pintada",
     precio: 899,
-    categoria: "muebles",
+    categoria: "lamparas",
     imagenes: {
       principal: {
         url: img20,
-        alt: "Sofá Modular",
       },
       adicionales: [
         {
           url: img20,
-          alt: "Vista lateral del Sofá Modular",
+
           order: 1,
         },
         {
           url: img20,
-          alt: "Sofá Modular en un ambiente de sala",
+
           order: 2,
         },
         {
           url: img20,
-          alt: "Vista trasera del Sofá Modular",
+
           order: 3,
         },
       ],
@@ -606,29 +590,28 @@ export const product = [
   },
   {
     id: 21,
-    nombre: "Funda para Móvil",
+    nombre: "Cartel Apex Est. contable",
     descripcion: "Cuerpo de polifan pintado con acrilico",
     precio: 19,
-    categoria: "accesorios",
+    categoria: "cateles",
     imagenes: {
       principal: {
         url: img21,
-        alt: "Funda para Móvil",
       },
       adicionales: [
         {
           url: img21,
-          alt: "Vista lateral de la Funda para Móvil",
+
           order: 1,
         },
         {
           url: img21,
-          alt: "Funda para Móvil en un fondo blanco",
+
           order: 2,
         },
         {
           url: img21,
-          alt: "Vista trasera de la Funda para Móvil",
+
           order: 3,
         },
       ],
