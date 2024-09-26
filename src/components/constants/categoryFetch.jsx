@@ -1,7 +1,7 @@
 export const category = [
   "Todas",
   "lamparas",
-  "cateles",
-  "Indicaciones",
+  "carteleria",
+  "senalizacion",
   "grabados",
 ];

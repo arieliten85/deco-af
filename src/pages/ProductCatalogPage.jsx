@@ -1,18 +1,28 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { Search, ChevronRight } from "lucide-react";
-import { category } from "../components/constants/categoryFetch";
+import { category as categorias } from "../components/constants/categoryFetch";
 import { product } from "../components/constants/productFetch";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Button } from "../components/common/UIComponents";
 
 const MAX_PRICE = 1500;
 
 const ProductCatalogPage = () => {
+  const { category: categoryParam } = useParams(); // Obtener el valor de la URL
   const [busqueda, setBusqueda] = useState("");
   const [filtroPrecio, setFiltroPrecio] = useState(MAX_PRICE);
   const [filtroCategoria, setFiltroCategoria] = useState("Todas");
   const [ordenamiento, setOrdenamiento] = useState("mayorMenor");
   const [productoSeleccionado, setProductoSeleccionado] = useState(null);
+
+  // Establecer el filtro de categoría según la URL (o "Todas" si no hay parámetro)
+  useEffect(() => {
+    if (categorias.includes(categoryParam)) {
+      setFiltroCategoria(categoryParam);
+    } else {
+      setFiltroCategoria("Todas");
+    }
+  }, [categoryParam]);
 
   const hayFiltrosAplicados = useCallback(() => {
     return (
@@ -23,6 +33,7 @@ const ProductCatalogPage = () => {
     );
   }, [busqueda, filtroPrecio, filtroCategoria, ordenamiento]);
 
+  // Filtrar productos según los filtros seleccionados
   const productosFiltrados = product.filter((producto) => {
     const dentroDelPrecio = producto.precio <= filtroPrecio;
     const incluyeFiltroCategoria =
@@ -30,15 +41,18 @@ const ProductCatalogPage = () => {
     const incluyeBusqueda = producto.nombre
       .toLowerCase()
       .includes(busqueda.toLowerCase());
+
     return dentroDelPrecio && incluyeFiltroCategoria && incluyeBusqueda;
   });
 
+  // Ordenar los productos filtrados según el criterio seleccionado
   const productosOrdenados = [...productosFiltrados].sort((a, b) => {
     return ordenamiento === "mayorMenor"
       ? b.precio - a.precio
       : a.precio - b.precio;
   });
 
+  // Función para limpiar los filtros
   const limpiarFiltros = () => {
     setBusqueda("");
     setFiltroPrecio(MAX_PRICE);
@@ -55,11 +69,11 @@ const ProductCatalogPage = () => {
       <main className="container mx-auto px-4 py-8">
         {/* VISTA INDICADOR DE PAGINA */}
         <nav className="flex items-center text-sm text-gray-500 mb-6">
-          <Link to="#" className="hover:text-gray-900">
+          <Link to="/" className="hover:text-gray-900">
             Inicio
           </Link>
           <ChevronRight className="h-4 w-4 mx-2" />
-          <Link to="#" className="hover:text-gray-900">
+          <Link to="/catalogo" className="hover:text-gray-900">
             Catálogo
           </Link>
           {productoSeleccionado && (
@@ -101,6 +115,7 @@ const ProductCatalogPage = () => {
                 <FiltroCategoria
                   filtroCategoria={filtroCategoria}
                   setFiltroCategoria={setFiltroCategoria}
+                  categorias={categorias}
                 />
                 <FiltroOrdenamiento
                   ordenamiento={ordenamiento}
@@ -161,13 +176,17 @@ const FiltroPrecio = ({ filtroPrecio, setFiltroPrecio }) => (
       style={{
         background: `linear-gradient(to right, #FFA500 ${
           (filtroPrecio / MAX_PRICE) * 100
-        }%, #e5e7eb ${(filtroPrecio / MAX_PRICE) * 100}%)`, // color naranja
+        }%, #e5e7eb ${(filtroPrecio / MAX_PRICE) * 100}%)`,
       }}
     />
   </div>
 );
 
-const FiltroCategoria = ({ filtroCategoria, setFiltroCategoria }) => (
+const FiltroCategoria = ({
+  filtroCategoria,
+  setFiltroCategoria,
+  categorias,
+}) => (
   <div>
     <label htmlFor="categoria" className="text-sm font-medium text-gray-700">
       Categoría
@@ -178,7 +197,7 @@ const FiltroCategoria = ({ filtroCategoria, setFiltroCategoria }) => (
       onChange={(e) => setFiltroCategoria(e.target.value)}
       className="mt-1 border rounded px-3 py-2 w-full"
     >
-      {category.map((categoria) => (
+      {categorias.map((categoria) => (
         <option key={categoria} value={categoria}>
           {categoria}
         </option>
@@ -219,7 +238,7 @@ const ProductoCard = ({ producto, seleccionarProducto }) => (
       <Link to={`/producto/${producto.id}`}>
         <Button
           onClick={() => seleccionarProducto(producto)}
-          className="bg-orange-500 text-white rounded-md hover:bg-orange-600 py-2 px-4 rounded    w-full"
+          className="bg-orange-500 text-white rounded-md hover:bg-orange-600 py-2 px-4 rounded w-full"
         >
           Ver detalles
         </Button>

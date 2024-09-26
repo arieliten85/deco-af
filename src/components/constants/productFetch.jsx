@@ -26,7 +26,7 @@ export const product = [
     nombre: "Cartel Universidad de Miami",
     descripcion: "Cuerpo de polifan pintado con acrilico",
     precio: 1299,
-    categoria: "cateles",
+    categoria: "carteleria",
     imagenes: {
       principal: {
         url: img01,
@@ -38,7 +38,7 @@ export const product = [
     id: 2,
     nombre: "Cartel EJS NAILS",
     precio: 899,
-    categoria: "cateles",
+    categoria: "carteleria",
     descripcion: "Cuerpo de polifan pintado con acrilico",
     imagenes: {
       principal: {
@@ -69,7 +69,7 @@ export const product = [
     nombre: "Cartel Escudo Selec. Argentina",
     descripcion: "Cuerpo de polifan pintado con acrilico",
     precio: 39,
-    categoria: "cateles",
+    categoria: "carteleria",
     imagenes: {
       principal: {
         url: img03,
@@ -98,7 +98,7 @@ export const product = [
     nombre: "Cartel Barberia Cut&Shave",
     descripcion: "Cuerpo de polifan pintado con acrilico",
     precio: 129,
-    categoria: "cateles",
+    categoria: "carteleria",
     imagenes: {
       principal: {
         url: img04,
@@ -127,7 +127,7 @@ export const product = [
     nombre: "Cartel Gym BodyStrong",
     descripcion: "Cuerpo de polifan pintado con acrilico",
     precio: 24,
-    categoria: "cateles",
+    categoria: "carteleria",
     imagenes: {
       principal: {
         url: img05,
@@ -156,7 +156,7 @@ export const product = [
     nombre: "Cartel Más allá del sol",
     descripcion: "Cuerpo de polifan pintado con acrilico",
     precio: 199,
-    categoria: "cateles",
+    categoria: "carteleria",
     imagenes: {
       principal: {
         url: img06,
@@ -185,7 +185,7 @@ export const product = [
     nombre: "Cartel Barberia barba negra",
     descripcion: "Cuerpo de polifan pintado con acrilico",
     precio: 299,
-    categoria: "cateles",
+    categoria: "carteleria",
     imagenes: {
       principal: {
         url: img07,
@@ -243,7 +243,7 @@ export const product = [
     nombre: "Cartel Ford F-100",
     descripcion: "Cuerpo de polifan pintado con acrilico",
     precio: 149,
-    categoria: "cateles",
+    categoria: "carteleria",
     imagenes: {
       principal: {
         url: img09,
@@ -447,7 +447,7 @@ export const product = [
     nombre: "Cartel gym Del Buenos Aires",
     descripcion: "Cuerpo de polifan pintado con acrilico",
     precio: 59,
-    categoria: "cateles",
+    categoria: "carteleria",
     imagenes: {
       principal: {
         url: img16,
@@ -535,7 +535,7 @@ export const product = [
     nombre: "Cartel led Burger TiaLoca",
     descripcion: "Cuerpo de polifan pintado con acrilico",
     precio: 49,
-    categoria: "cateles",
+    categoria: "carteleria",
     imagenes: {
       principal: {
         url: img19,
@@ -593,7 +593,7 @@ export const product = [
     nombre: "Cartel Apex Est. contable",
     descripcion: "Cuerpo de polifan pintado con acrilico",
     precio: 19,
-    categoria: "cateles",
+    categoria: "carteleria",
     imagenes: {
       principal: {
         url: img21,

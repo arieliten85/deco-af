@@ -6,6 +6,7 @@ import brandedMerchImg from "../../assets/branded-merch.jpeg";
 export const catalogo = [
   {
     title: "Lámparas Colgantes",
+    path: "/lamparas",
     text: [
       "Diseños elegantes y modernos que iluminan y embellecen tu espacio, creando ambientes acogedores.",
     ],
@@ -13,22 +14,25 @@ export const catalogo = [
   },
   {
     title: "Cartelería Corpórea",
+    path: "/carteleria",
     text: [
       "Cartelería de polifán y acrílico, diseñada para impactar y comunicar de manera efectiva, adaptándose a tus necesidades",
     ],
     img: businessSignageImg,
   },
   {
-    title: "Señalizaciones Personalizadas",
+    title: "Señalizaciones Exclusivas",
+    path: "/senalizacion",
     text: [
-      "Señalizaciones únicas que guían e indican con claridad, mejorando la orientación en cualquier espacio.",
+      "Diseños de señalización que optimizan la orientación en espacios interiores y exteriores, con un toque personalizado.",
     ],
     img: customSignageImg,
   },
   {
-    title: "Merchandising",
+    title: "Merchandising de Grabado",
+    path: "/grabados",
     text: [
-      "Grabados personalizados que refuerzan tu identidad de marca y dejan una impresión duradera en tus clientes.",
+      "Productos grabados a medida que reflejan tu identidad de marca, ofreciendo un impacto visual duradero.",
     ],
     img: brandedMerchImg,
   },

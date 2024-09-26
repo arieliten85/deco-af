@@ -40,7 +40,7 @@ export const CatalogSection = () => {
                   {product.text}
                 </p>
 
-                <Link to="/productos">
+                <Link to={`/productos${product.path}`}>
                   <Button className="mt-auto mb-4 flex items-center bg-orange-500 text-white rounded-md hover:bg-orange-600">
                     Ver detalles <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
