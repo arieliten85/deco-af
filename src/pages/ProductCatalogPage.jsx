@@ -199,7 +199,7 @@ const FiltroCategoria = ({
     >
       {categorias.map((categoria) => (
         <option key={categoria} value={categoria}>
-          {categoria}
+          {categoria.charAt(0).toUpperCase() + categoria.slice(1)}
         </option>
       ))}
     </select>
