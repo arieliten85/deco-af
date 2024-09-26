@@ -1,19 +1,20 @@
 import { useState, useCallback, useEffect } from "react";
-import { Search, ChevronRight } from "lucide-react";
+import { Search } from "lucide-react";
 import { category as categorias } from "../components/constants/categoryFetch";
 import { product } from "../components/constants/productFetch";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom"; // Importar useNavigate
 import { Button } from "../components/common/UIComponents";
+import MyBreadcrumbs from "../components/MyBreadcrumbs";
 
 const MAX_PRICE = 1500;
 
 const ProductCatalogPage = () => {
   const { category: categoryParam } = useParams(); // Obtener el valor de la URL
+  const navigate = useNavigate(); // Obtener la función de navegación
   const [busqueda, setBusqueda] = useState("");
   const [filtroPrecio, setFiltroPrecio] = useState(MAX_PRICE);
   const [filtroCategoria, setFiltroCategoria] = useState("Todas");
   const [ordenamiento, setOrdenamiento] = useState("mayorMenor");
-  const [productoSeleccionado, setProductoSeleccionado] = useState(null);
 
   // Establecer el filtro de categoría según la URL (o "Todas" si no hay parámetro)
   useEffect(() => {
@@ -58,33 +59,24 @@ const ProductCatalogPage = () => {
     setFiltroPrecio(MAX_PRICE);
     setFiltroCategoria("Todas");
     setOrdenamiento("mayorMenor");
+    navigate("/productos"); // Navegar a la ruta de productos
   };
 
-  const seleccionarProducto = (producto) => {
-    setProductoSeleccionado(producto);
+  // Función para actualizar la categoría y cambiar la ruta
+  const actualizarCategoria = (categoria) => {
+    setFiltroCategoria(categoria);
+    if (categoria === "Todas") {
+      navigate(`/productos`); // Cambiar la ruta a base si se selecciona "Todas"
+    } else {
+      navigate(`/productos/${categoria}`); // Cambiar la ruta según la categoría seleccionada
+    }
   };
 
   return (
     <div className="min-h-screen bg-gray-100">
       <main className="container mx-auto px-4 py-8">
         {/* VISTA INDICADOR DE PAGINA */}
-        <nav className="flex items-center text-sm text-gray-500 mb-6">
-          <Link to="/" className="hover:text-gray-900">
-            Inicio
-          </Link>
-          <ChevronRight className="h-4 w-4 mx-2" />
-          <Link to="/catalogo" className="hover:text-gray-900">
-            Catálogo
-          </Link>
-          {productoSeleccionado && (
-            <>
-              <ChevronRight className="h-4 w-4 mx-2" />
-              <span className="text-gray-900">
-                {productoSeleccionado.nombre}
-              </span>
-            </>
-          )}
-        </nav>
+        <MyBreadcrumbs />
 
         {/* VISTA BUSCADOR */}
         <div className="mb-8">
@@ -114,7 +106,7 @@ const ProductCatalogPage = () => {
                 />
                 <FiltroCategoria
                   filtroCategoria={filtroCategoria}
-                  setFiltroCategoria={setFiltroCategoria}
+                  setFiltroCategoria={actualizarCategoria} // Cambiar aquí
                   categorias={categorias}
                 />
                 <FiltroOrdenamiento
@@ -140,11 +132,7 @@ const ProductCatalogPage = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {productosOrdenados.length > 0 ? (
                 productosOrdenados.map((producto) => (
-                  <ProductoCard
-                    key={producto.id}
-                    producto={producto}
-                    seleccionarProducto={seleccionarProducto}
-                  />
+                  <ProductoCard key={producto.id} producto={producto} />
                 ))
               ) : (
                 <p>
@@ -194,7 +182,7 @@ const FiltroCategoria = ({
     <select
       id="categoria"
       value={filtroCategoria}
-      onChange={(e) => setFiltroCategoria(e.target.value)}
+      onChange={(e) => setFiltroCategoria(e.target.value)} // Se actualiza aquí
       className="mt-1 border rounded px-3 py-2 w-full"
     >
       {categorias.map((categoria) => (
@@ -223,7 +211,7 @@ const FiltroOrdenamiento = ({ ordenamiento, setOrdenamiento }) => (
   </div>
 );
 
-const ProductoCard = ({ producto, seleccionarProducto }) => (
+const ProductoCard = ({ producto }) => (
   <div className="bg-white rounded-lg shadow overflow-hidden hover:shadow-lg transition-shadow duration-300">
     <img
       src={producto.imagenes?.principal.url}
@@ -235,11 +223,10 @@ const ProductoCard = ({ producto, seleccionarProducto }) => (
       <p className="text-xl font-semibold">${producto.precio}</p>
     </div>
     <div className="p-4 border-t">
-      <Link to={`/producto/${producto.id}`}>
-        <Button
-          onClick={() => seleccionarProducto(producto)}
-          className="bg-orange-500 text-white rounded-md hover:bg-orange-600 py-2 px-4 rounded w-full"
-        >
+      <Link
+        to={`/productos/${producto.categoria}/${producto.nombre.toLowerCase()}`}
+      >
+        <Button className="bg-orange-500 text-white rounded-md hover:bg-orange-600 py-2 px-4 rounded w-full">
           Ver detalles
         </Button>
       </Link>

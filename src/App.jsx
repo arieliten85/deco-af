@@ -3,8 +3,10 @@ import Navbar from "./components/navBar/Navbar";
 import Footer from "./components/Footer";
 
 import ProductCatalogPage from "./pages/ProductCatalogPage";
-import HomePage from "./pages/Home";
-import ProductDetail from "./components/ProductDetail";
+import HomePage from "./pages/HomePage";
+
+import ContactPage from "./pages/ContactPage";
+import ProductDetailPage from "./pages/ProductDetailPage";
 
 function App() {
   return (
@@ -15,9 +17,13 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/productos" element={<ProductCatalogPage />} />
 
-          <Route path="/producto/:id" element={<ProductDetail />} />
-
+          <Route
+            path="/productos/:category/:nombre"
+            element={<ProductDetailPage />}
+          />
           <Route path="/productos/:category" element={<ProductCatalogPage />} />
+
+          <Route path="/contacto" element={<ContactPage />} />
         </Routes>
         <Footer />
       </div>

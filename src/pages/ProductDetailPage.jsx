@@ -1,21 +1,35 @@
 import { useEffect, useState } from "react";
-import { Button, Card } from "./common/UIComponents";
+import { Button, Card } from "../components/common/UIComponents";
 import { useParams } from "react-router-dom";
-import { product } from "./constants/productFetch";
+import { product } from "../components/constants/productFetch";
+import MyBreadcrumbs from "../components/MyBreadcrumbs";
 
-export default function ProductDetail() {
-  const { id } = useParams();
+export default function ProductDetailPage() {
+  const { nombre } = useParams();
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
-  const [productDetails, setProductDetails] = useState({});
+  const [productDetails, setProductDetails] = useState(null);
 
   useEffect(() => {
-    if (product.length > 0) {
-      const filteredProduct = product.filter((item) => item.id === Number(id));
-      setProductDetails(filteredProduct.length > 0 ? filteredProduct[0] : null);
-    }
-  }, [product, id]);
+    const filteredProduct = product.find((item) => {
+      return (
+        item.nombre.toLowerCase().replace(/ /g, "-") ===
+        nombre.replace(/ /g, "-")
+      );
+    });
 
-  const { imagenes = {}, nombre, precio, descripcion } = productDetails;
+    setProductDetails(filteredProduct || null);
+  }, [nombre]);
+
+  if (!productDetails) {
+    return <div>No se encontró el producto.</div>;
+  }
+
+  const {
+    imagenes = {},
+    nombre: nombreProducto,
+    precio,
+    descripcion,
+  } = productDetails;
   const primaryImage = imagenes.principal?.url;
   const additionalImages = imagenes.adicionales?.map((img) => img.url) || [];
 
@@ -25,6 +39,7 @@ export default function ProductDetail() {
 
   return (
     <div className="w-full px-4 py-8">
+      <MyBreadcrumbs />
       <Card className="overflow-hidden mx-auto max-w-6xl">
         <CardContent className="p-4">
           <div className="grid md:grid-cols-2 gap-8">
@@ -35,7 +50,7 @@ export default function ProductDetail() {
               onImageSelect={handleImageSelect}
             />
             <ProductInfo
-              name={nombre}
+              name={nombreProducto}
               price={precio}
               description={descripcion}
             />
@@ -93,9 +108,7 @@ function ProductInfo({ name, price, description }) {
     <div className="space-y-6">
       <div>
         <h1 className="text-4xl font-bold">{name}</h1>{" "}
-        {/* Aumentar tamaño del texto */}
         <p className="text-2xl font-semibold mt-2">${price}</p>{" "}
-        {/* Aumentar tamaño del precio */}
       </div>
 
       <p className="text-gray-600">{description}</p>

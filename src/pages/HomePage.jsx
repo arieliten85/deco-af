@@ -1,6 +1,6 @@
 import { CatalogSection } from "../components/CatalogSection";
-import { ContactSection } from "../components/ContactSection";
 import { HeroSection } from "../components/HeroSection";
+import ContactSection from "../components/navBar/ContactSection";
 import { TestimonialsSection } from "../components/TestimonialsSection";
 
 export default function HomePage() {
