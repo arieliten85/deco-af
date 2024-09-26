@@ -2,21 +2,20 @@ import { useState, useCallback, useEffect } from "react";
 import { Search } from "lucide-react";
 import { category as categorias } from "../components/constants/categoryFetch";
 import { product } from "../components/constants/productFetch";
-import { Link, useParams, useNavigate } from "react-router-dom"; // Importar useNavigate
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { Button } from "../components/common/UIComponents";
 import MyBreadcrumbs from "../components/MyBreadcrumbs";
 
 const MAX_PRICE = 1500;
 
 const ProductCatalogPage = () => {
-  const { category: categoryParam } = useParams(); // Obtener el valor de la URL
-  const navigate = useNavigate(); // Obtener la función de navegación
+  const { category: categoryParam } = useParams();
+  const navigate = useNavigate();
   const [busqueda, setBusqueda] = useState("");
   const [filtroPrecio, setFiltroPrecio] = useState(MAX_PRICE);
   const [filtroCategoria, setFiltroCategoria] = useState("Todas");
   const [ordenamiento, setOrdenamiento] = useState("mayorMenor");
 
-  // Establecer el filtro de categoría según la URL (o "Todas" si no hay parámetro)
   useEffect(() => {
     if (categorias.includes(categoryParam)) {
       setFiltroCategoria(categoryParam);
@@ -59,16 +58,16 @@ const ProductCatalogPage = () => {
     setFiltroPrecio(MAX_PRICE);
     setFiltroCategoria("Todas");
     setOrdenamiento("mayorMenor");
-    navigate("/productos"); // Navegar a la ruta de productos
+    navigate("/productos");
   };
 
   // Función para actualizar la categoría y cambiar la ruta
   const actualizarCategoria = (categoria) => {
     setFiltroCategoria(categoria);
     if (categoria === "Todas") {
-      navigate(`/productos`); // Cambiar la ruta a base si se selecciona "Todas"
+      navigate(`/productos`);
     } else {
-      navigate(`/productos/${categoria}`); // Cambiar la ruta según la categoría seleccionada
+      navigate(`/productos/${categoria}`);
     }
   };
 
