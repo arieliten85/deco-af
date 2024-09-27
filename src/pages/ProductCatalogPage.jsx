@@ -1,10 +1,11 @@
 import { useState, useCallback, useEffect } from "react";
-import { Search } from "lucide-react";
+import { ListFilter, Search, X } from "lucide-react";
 import { category as categorias } from "../components/constants/categoryFetch";
 import { product } from "../components/constants/productFetch";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { Button } from "../components/common/UIComponents";
 import MyBreadcrumbs from "../components/MyBreadcrumbs";
+import { Dialog, DialogContent, DialogTitle, IconButton } from "@mui/material";
 
 const MAX_PRICE = 1500;
 
@@ -15,6 +16,7 @@ const ProductCatalogPage = () => {
   const [filtroPrecio, setFiltroPrecio] = useState(MAX_PRICE);
   const [filtroCategoria, setFiltroCategoria] = useState("Todas");
   const [ordenamiento, setOrdenamiento] = useState("mayorMenor");
+  const [modalAbierto, setModalAbierto] = useState(false);
 
   useEffect(() => {
     if (categorias.includes(categoryParam)) {
@@ -33,7 +35,6 @@ const ProductCatalogPage = () => {
     );
   }, [busqueda, filtroPrecio, filtroCategoria, ordenamiento]);
 
-  // Filtrar productos según los filtros seleccionados
   const productosFiltrados = product.filter((producto) => {
     const dentroDelPrecio = producto.precio <= filtroPrecio;
     const incluyeFiltroCategoria =
@@ -45,14 +46,12 @@ const ProductCatalogPage = () => {
     return dentroDelPrecio && incluyeFiltroCategoria && incluyeBusqueda;
   });
 
-  // Ordenar los productos filtrados según el criterio seleccionado
   const productosOrdenados = [...productosFiltrados].sort((a, b) => {
     return ordenamiento === "mayorMenor"
       ? b.precio - a.precio
       : a.precio - b.precio;
   });
 
-  // Función para limpiar los filtros
   const limpiarFiltros = () => {
     setBusqueda("");
     setFiltroPrecio(MAX_PRICE);
@@ -61,7 +60,6 @@ const ProductCatalogPage = () => {
     navigate("/productos");
   };
 
-  // Función para actualizar la categoría y cambiar la ruta
   const actualizarCategoria = (categoria) => {
     setFiltroCategoria(categoria);
     if (categoria === "Todas") {
@@ -71,14 +69,14 @@ const ProductCatalogPage = () => {
     }
   };
 
+  const toggleModal = () => setModalAbierto(!modalAbierto);
+
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen bg-gray-100  ">
       <main className="container mx-auto px-4 py-8">
-        {/* VISTA INDICADOR DE PAGINA */}
         <MyBreadcrumbs />
 
-        {/* VISTA BUSCADOR */}
-        <div className="mb-8">
+        <div className="my-8">
           <div className="relative">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
             <input
@@ -91,9 +89,24 @@ const ProductCatalogPage = () => {
           </div>
         </div>
 
+        <div className="flex items-center justify-between mb-4">
+          <div className="w-full lg:w-auto">
+            <FiltroOrdenamiento
+              ordenamiento={ordenamiento}
+              setOrdenamiento={setOrdenamiento}
+            />
+          </div>
+
+          <IconButton onClick={toggleModal}>
+            <ListFilter
+              variant="contained"
+              className="lg:hidden w-auto  m-3 "
+            />
+          </IconButton>
+        </div>
+
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-          {/* VISTA FILTROS */}
-          <aside className="lg:col-span-1">
+          <aside className="hidden lg:block lg:col-span-1">
             <div className="bg-white rounded-lg shadow sticky top-8">
               <div className="p-4 border-b">
                 <h2 className="text-lg font-bold">Filtros</h2>
@@ -105,12 +118,8 @@ const ProductCatalogPage = () => {
                 />
                 <FiltroCategoria
                   filtroCategoria={filtroCategoria}
-                  setFiltroCategoria={actualizarCategoria} // Cambiar aquí
+                  setFiltroCategoria={actualizarCategoria}
                   categorias={categorias}
-                />
-                <FiltroOrdenamiento
-                  ordenamiento={ordenamiento}
-                  setOrdenamiento={setOrdenamiento}
                 />
               </div>
               {hayFiltrosAplicados() && (
@@ -126,9 +135,49 @@ const ProductCatalogPage = () => {
             </div>
           </aside>
 
-          {/* VISTA PRODUCTOS */}
+          <Dialog
+            open={modalAbierto}
+            onClose={toggleModal}
+            fullWidth
+            maxWidth="sm"
+          >
+            <DialogTitle>
+              <div className="flex justify-between items-center">
+                <h2>Filtros</h2>
+                <IconButton onClick={toggleModal}>
+                  <X />
+                </IconButton>
+              </div>
+            </DialogTitle>
+            <DialogContent>
+              <div className="space-y-6">
+                <FiltroPrecio
+                  filtroPrecio={filtroPrecio}
+                  setFiltroPrecio={setFiltroPrecio}
+                />
+                <FiltroCategoria
+                  filtroCategoria={filtroCategoria}
+                  setFiltroCategoria={actualizarCategoria}
+                  categorias={categorias}
+                />
+              </div>
+              {hayFiltrosAplicados() && (
+                <div className="mt-4 border-t pt-4">
+                  <Button
+                    variant="contained"
+                    onClick={limpiarFiltros}
+                    color="secondary"
+                    fullWidth
+                  >
+                    Limpiar Filtros
+                  </Button>
+                </div>
+              )}
+            </DialogContent>
+          </Dialog>
+
           <div className="lg:col-span-3">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 sm:gap-6 gap-3">
               {productosOrdenados.length > 0 ? (
                 productosOrdenados.map((producto) => (
                   <ProductoCard key={producto.id} producto={producto} />
@@ -181,7 +230,7 @@ const FiltroCategoria = ({
     <select
       id="categoria"
       value={filtroCategoria}
-      onChange={(e) => setFiltroCategoria(e.target.value)} // Se actualiza aquí
+      onChange={(e) => setFiltroCategoria(e.target.value)}
       className="mt-1 border rounded px-3 py-2 w-full"
     >
       {categorias.map((categoria) => (
@@ -194,15 +243,18 @@ const FiltroCategoria = ({
 );
 
 const FiltroOrdenamiento = ({ ordenamiento, setOrdenamiento }) => (
-  <div>
-    <label htmlFor="ordenamiento" className="text-sm font-medium text-gray-700">
+  <div className="mb-4 w-full sm:w-1/2 lg:w-auto">
+    <label
+      htmlFor="ordenamiento"
+      className="text-sm sm:text-base font-medium text-gray-700 block mb-1"
+    >
       Ordenar por precio
     </label>
     <select
       id="ordenamiento"
       value={ordenamiento}
       onChange={(e) => setOrdenamiento(e.target.value)}
-      className="mt-1 border rounded px-3 py-2 w-full"
+      className="mt-1 border rounded px-3 py-2 text-xs sm:text-base inline-block cursor-pointer" // Agregado cursor-pointer
     >
       <option value="mayorMenor">De mayor a menor precio</option>
       <option value="menorMayor">De menor a mayor precio</option>
@@ -217,8 +269,8 @@ const ProductoCard = ({ producto }) => (
       alt={producto.nombre}
       className="w-full"
     />
-    <div className="p-4 flex flex-col justify-between">
-      <h3 className="text-lg font-bold">{producto.nombre}</h3>
+    <div className="p-4 flex flex-col justify-between min-h-[100px]">
+      <h3 className="sm:text-lg text-sm font-bold">{producto.nombre}</h3>
       <p className="text-xl font-semibold">${producto.precio}</p>
     </div>
     <div className="p-4 border-t">
